@@ -1,3 +1,5 @@
+// this looks bad, TODO: find alternative
+global.__this_basedir = __dirname;
 const Koa = require('koa');
 const bodyParser = require('koa-body');
 const jwt = require('jsonwebtoken');
@@ -46,7 +48,7 @@ const { io, server } = require('./io')(app);
 // =======================
 // start the server ======
 // =======================
-const PORT = 3000;
+const PORT = 3010;
 server.listen(PORT, () => console.log(`listening on port ${PORT} on ${process.env.NODE_ENV} enviroment.`));
 
 module.exports = {

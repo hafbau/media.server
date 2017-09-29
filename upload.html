@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+</head>
+
+<body>
+    <!--multiple is set to allow multiple files to be selected-->
+    <form method="post" action="/files" enctype="multipart/form-data">
+        <input id="myfiles" name="test" multiple type="file">
+        <input type="submit" value="Upload" />
+    </form>
+</body>
+
+<script>
+    const getFile = function (e) {
+        // love the query selector
+        // const fileInput = document.querySelector("#myfiles");
+        const files = e.target.files;
+        console.log('files', files)
+        // cache files.length 
+        // const fl = files.length;
+        // let i = 0;
+
+        // while (i < fl) {
+        //     // localize file const in the loop
+        //     const file = files[i];
+        //     alert(file.name);
+        //     i++;
+        // }
+    }
+
+    // // set the input element onchange to call pullfiles
+    document.querySelector("#myfiles").onchange = getFile;
+
+//a.t
+
+</script>
+
+</html>
