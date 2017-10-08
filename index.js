@@ -13,9 +13,7 @@ const helmet = require('koa-helmet');
 // =======================
 const app = new Koa();
 const config = require('./config');
-const db = require('mongoose');
-db.Promise = Promise;
-db.connect(config.db, { useMongoClient: true });
+const db = require('./db')(config.db);
 const models = require('./models')(db);
 const controllers = require('./controllers')(models, render);
 const middlewares = require('./middlewares')(models);
