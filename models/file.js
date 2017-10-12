@@ -26,6 +26,5 @@ module.exports = function(db) {
   const File = db.model('File', FileSchema);
   // custom helpers
   
-  
   return File 
 };

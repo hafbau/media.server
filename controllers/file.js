@@ -40,7 +40,7 @@ module.exports = ({ File }, render) => {
       try {
         let { request: { body: { files } } } = ctx;
         files = files ? files : ctx.request.files;
-
+        ctx.assert(files && Object.keys(files).length, 400, 'No files found in request')
         // this due to non-form files
         if (typeof files === 'string') files = JSON.parse(files)    
         const createdFiles = await Promise.all(
