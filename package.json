@@ -18,6 +18,7 @@
     "caminte": "^0.4.0",
     "content-disposition": "^0.5.2",
     "jsonwebtoken": "^7.4.1",
+    "kcors": "^2.2.1",
     "koa": "^2.3.0",
     "koa-body": "^2.3.0",
     "koa-helmet": "^3.2.0",
@@ -32,5 +33,32 @@
     "should": "^13.1.0",
     "supertest": "^3.0.0",
     "tap": "^10.7.2"
+  },
+  "apps": [
+    {
+      "name": "auth",
+      "script": "index.js",
+      "instances": 2,
+      "exec_mode": "cluster",
+      "env": {
+        "COMMON_VARIABLE": "true"
+      },
+      "env_production": {
+        "NODE_ENV": "production"
+      }
+    }
+  ],
+  "deploy": {
+    "production": {
+      "user": "sb",
+      "host": "159.203.14.114",
+      "ref": "origin/master",
+      "repo": "git@github.com:hafbau/auth.server.git",
+      "path": "/home/sb/auth",
+      "post-deploy": "npm install && pm2 startOrGracefulReload package.json --env production",
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
   }
 }

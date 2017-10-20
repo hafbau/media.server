@@ -28,6 +28,8 @@ const { combinedRoutes } = require('./routes')({ controllers, middlewares, route
 // setting up app ========
 // =======================
 
+// cross-origin set up
+app.use(middlewares.cors);
 // set up security, logging and body
 // app.use(helmet);
 app.use(morgan('dev'));
