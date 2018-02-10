@@ -52,6 +52,6 @@ const PORT = 4002;
 if (!module.parent) server.listen(PORT, () => console.log(`listening on port ${PORT} on ${process.env.NODE_ENV} enviroment.`));
 
 module.exports = {
-    mediaserver,
-    mediadb
+    mediaserver: server,
+    mediadb: db
 };
