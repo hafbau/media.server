@@ -61,7 +61,7 @@ module.exports = ({ File }, render) => {
                     .once("end", _ => fs.unlink(file.path, _ => null))
                     .pipe(fs.createWriteStream(path.join(FILES_PATH, String(createdFile._id)))
                     .once("error", reject)
-                      .once("close", () => resolve(savedFile))
+                    .once("close", () => resolve(savedFile))
                   );
                 });
               });

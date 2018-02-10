@@ -1,8 +1,8 @@
 {
-  "name": "server",
-  "version": "1.0.0",
+  "name": "mediaserver",
+  "version": "1.0.3",
   "description": "",
-  "main": "serverModule.js",
+  "main": "index.js",
   "scripts": {
     "prod-deploy": "pm2 deploy package.json production",
     "debug": "node inspect index.js",
