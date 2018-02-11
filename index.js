@@ -12,9 +12,9 @@ const fs = require('fs');
 const path = require('path');
 
 // ensuring files folder exists
-process.env.FILES_PARENT = process.env.FILES_PARENT || path.dirname(require.main.filename);
+process.env.FILES = process.env.FILES || path.join(path.dirname(require.main.filename), 'files');
 try {
-    fs.mkdirSync(path.join(process.env.FILES_PARENT, 'files'));
+    fs.mkdirSync(process.env.FILES);
 } catch (e) {
     console.log('creating files directory results in erro: ', e.message)
 }
