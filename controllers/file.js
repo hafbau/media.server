@@ -1,7 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 const { contentDisposition } = require('../utils');
-const FILES_PATH = path.join(__this_basedir, 'files');
+const FILES_PATH = process.env.FILES;
 
 module.exports = ({ File }, render) => {
   return {

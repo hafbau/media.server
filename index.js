@@ -1,13 +1,23 @@
 // this looks bad, TODO: find alternative
-global.__this_basedir = __dirname;
 const Koa = require('koa');
 const bodyParser = require('koa-body');
 const jwt = require('jsonwebtoken');
+
 const router = require('koa-router')();
 const render = require('koa-send');
 const morgan = require('koa-morgan');
-const helmet = require('koa-helmet');
 
+const helmet = require('koa-helmet');
+const fs = require('fs');
+const path = require('path');
+
+// ensuring files folder exists
+process.env.FILES_PARENT = process.env.FILES_PARENT || path.dirname(require.main.filename);
+try {
+    fs.mkdirSync(path.join(process.env.FILES_PARENT, 'files'));
+} catch (e) {
+    console.log('creating files directory results in erro: ', e.message)
+}
 // =======================
 // configuration =========
 // =======================
@@ -70,7 +80,7 @@ const { io, server } = require('./io')(app);
 // =======================
 // start the server ======
 // =======================
-const PORT = 4002;
+const PORT = 4004;
 if (!module.parent) server.listen(PORT, () => console.log(`listening on port ${PORT} on ${process.env.NODE_ENV} enviroment.`));
 
 module.exports = {
